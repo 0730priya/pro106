@@ -1,0 +1,9 @@
+import cv2
+body_classifier = cv2.CascadeClassifiler("haarcascade_fullbody.xml")
+gray = cv2.cvtColor(bodies,cv2.COLOR_BGR2GRAY)
+bodies = body_classifier.detectMultiScale(gray,1.2,3)
+for (x,y,w,h) in bodies:
+    cv2.rectangle(bodies,(x,y),(x+w,y+h),(255,0,0),2)
+
+cv2.imshow("bodies",bodies)
+cv2.waitKey(0)
